@@ -11,7 +11,7 @@ class BugOrOutdatedError < ScriptError; end
 task :yank_all_i_swear_i_know_exactly_what_i_am_going_to_do, %w[the_retired_gem_name otp_code] do |_task, args|
   the_retired_gem_name = args.the_retired_gem_name.freeze
   otp_code = args.otp_code.freeze
-  raise ArgumentError, 'should pass OTP code!' unless /\A[\d]{6}\z/.match?(otp_code)
+  raise ArgumentError, 'should pass OTP code!' unless /\A\d{6}\z/.match?(otp_code)
   gem_info = `gem info #{the_retired_gem_name} --remote --all`
   name_and_versions_possibilities = gem_info.lines.grep(/\A#{Regexp.escape(the_retired_gem_name)} *\(/)
   raise BugOrOutdatedError unless name_and_versions_possibilities.size == 1
