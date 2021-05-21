@@ -2,7 +2,8 @@
 
 In my understanding, when yanked all versions of a gem, the namespace will be released.
 
-[deprecated site, but looks still active some of the information](https://help.rubygems.org/kb/gemcutter/removing-a-published-rubygem)
+* [deprecated site, but looks still active some of the information](https://help.rubygems.org/kb/gemcutter/removing-a-published-rubygem)
+* [Showing message when yanked all versions](https://github.com/rubygems/rubygems.org/blob/60fed00a6769ee5aee89150669034e51d12de865/config/locales/en.yml#L429-L433)
 
 Here is an excerpt
 
@@ -40,6 +41,8 @@ Successfully deleted gem: the_retired_gem_name (0.0.3)
 
 ...I got peace
 ```
+
+![All worldly things are transitory](https://user-images.githubusercontent.com/1180335/119101820-6174dd00-ba54-11eb-9b38-872c33f6f5ea.png)
 
 This is dangerous. Correctly works or not is not ensured the feature of `gem` command behavior changes. I don't recommend to use this tool by others.
 
