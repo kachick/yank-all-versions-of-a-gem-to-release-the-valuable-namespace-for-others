@@ -1,8 +1,25 @@
 # Yank all versions of a gem to release the valuable namespace for others
 
-In my understanding, when yanked all versions of a gem, the namespace will be released.
+In my understanding...
 
-* [deprecated site, but looks still active some of the information](https://help.rubygems.org/kb/gemcutter/removing-a-published-rubygem)
+* Basically once released gem versions should not be yanked except unavoidable reasons.
+  * Security issue
+  * License issue
+  * Accidentally contained secrets in the gem file
+
+But I believe, OSS licenses accept to retire from projects.
+So when want to actually retire from it, which behaviors will be preferable?
+
+* Find successors as maintainers and give the power to them
+* Keep the source code, but archived with the reason and refer new repository URL
+
+It is right!
+
+But experimental gems, ancient gems, no longer maintained gems. When they are almost not used, Releasing the namespace might be a good choice?
+
+Below links say, when yanked all versions of a gem, the namespace will be released.
+
+* [Deprecated site, but looks still active some of the information](https://help.rubygems.org/kb/gemcutter/removing-a-published-rubygem)
 * [Showing message when yanked all versions](https://github.com/rubygems/rubygems.org/blob/60fed00a6769ee5aee89150669034e51d12de865/config/locales/en.yml#L429-L433)
 
 Here is an excerpt
@@ -15,13 +32,26 @@ I don't want to be using up the namespace
 Once you've yanked all versions of a gem the namespace is free for others to use. If you accidentally pushed the wrong name once yank it and it'll be free for others to use.
 ```
 
+```plaintext
+This gem previously existed, but has been removed by its owner. The RubyGems.org team has reserved this gem name for %{count} more days. After that time is up, anyone will be able to claim this gem name using gem push.
+```
+
 Sounds good! But...
 
 `gem yank` command requires the `version` specified. I can understand, it should be safe for handling valuable gems. Reasonable. Should not be changed.
 
 But it makes annoy operations when actually want to release the namespace.
 
-This is the one.
+This is a solution.
+
+## Tasks before using this
+
+Confirm the library is not used by other OSS at least hosted on GitHub and/or published on rubygems
+
+```plaintext
+https://github.com/#{your_name}/#{the_library}/network/dependents
+https://rubygems.org/gems/#{the_library}/reverse_dependencies
+```
 
 ## Usage
 
@@ -45,13 +75,6 @@ Successfully deleted gem: the_retired_gem_name (0.0.3)
 ![All worldly things are transitory](https://user-images.githubusercontent.com/1180335/119101820-6174dd00-ba54-11eb-9b38-872c33f6f5ea.png)
 
 This is dangerous. Correctly works or not is not ensured the feature of `gem` command behavior changes. I don't recommend to use this tool by others.
-
-## License?
-
-WTFPL
-
-* https://choosealicense.com/licenses/wtfpl/
-* https://en.wikipedia.org/wiki/WTFPL
 
 ## Motivation
 
