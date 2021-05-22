@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rake/testtask'
-
 class BugOrOutdatedError < ScriptError; end
 
 # refs for implementation
