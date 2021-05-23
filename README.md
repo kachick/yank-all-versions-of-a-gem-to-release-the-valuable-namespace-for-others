@@ -74,7 +74,25 @@ Successfully deleted gem: the_retired_gem_name (0.0.3)
 
 ![All worldly things are transitory](https://user-images.githubusercontent.com/1180335/119101820-6174dd00-ba54-11eb-9b38-872c33f6f5ea.png)
 
-This is dangerous. Correctly works or not is not ensured the feature of `gem` command behavior changes. I don't recommend to use this tool by others.
+This is dangerous. Correctly works or not is not ensured the feature of `gem` command behavior changes.
+
+My environment when used this tool.
+
+```console
+$ ruby -v
+ruby 3.0.1p64 (2021-04-05 revision 0fb782ee38) [x86_64-darwin20]
+
+$ gem -v
+3.2.15
+
+$ bundle -v
+Bundler version 2.2.17
+
+$ rake --version
+rake, version 13.0.3
+```
+
+I don't recommend to use this way, for others.
 
 ## Motivation
 
