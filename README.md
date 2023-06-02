@@ -2,22 +2,22 @@
 
 In my understanding...
 
-* Basically once released gem versions should not be yanked except unavoidable reasons.
-  * Security issue
-  * License issue
-  * Accidentally contained secrets in the gem file
+* Basically, once released, gem versions should not be yanked except for unavoidable reasons.
+  * Security issues
+  * License issues
+  * Secrets accidentally included in the gem file
 
 But I believe, OSS licenses accept to retire from projects.
-So when want to actually retire from it, which behaviors will be preferable?
+So if you really want to retire, which behaviors are preferable?
 
-* Find successors as maintainers and give the power to them
-* Keep the source code, but archived with the reason and refer new repository URL
+* Find successors as maintainers and give them power
+* Keep the source code, but archive it with the reason and point to a new repository URL
 
-It is right!
+This is right!
 
-But experimental gems, ancient gems, no longer maintained gems. When they are almost not used, Releasing the namespace might be a good choice?
+But experimental gems, old gems, no longer maintained gems. If they are almost never used, releasing the namespace might be a good choice?
 
-Below links say, when yanked all versions of a gem, the namespace will be released.
+Below links say that if all versions of a gem are yanked, the namespace will be released.
 
 * [Deprecated site, but looks still active some of the information](https://help.rubygems.org/kb/gemcutter/removing-a-published-rubygem)
 * [Showing message when yanked all versions](https://github.com/rubygems/rubygems.org/blob/60fed00a6769ee5aee89150669034e51d12de865/config/locales/en.yml#L429-L433)
@@ -38,15 +38,15 @@ This gem previously existed, but has been removed by its owner. The RubyGems.org
 
 Sounds good! But...
 
-`gem yank` command requires the `version` specified. I can understand, it should be safe for handling valuable gems. Reasonable. Should not be changed.
+The `gem yank` command requires the specified `version`. I can understand that, it should be safe to handle valuable gems. Reasonable. Should not be changed.
 
-But it makes annoy operations when actually want to release the namespace.
+But it makes operations annoying when you actually want to free the namespace.
 
 This is a solution.
 
 ## Tasks before using this
 
-Confirm the library is not used by other OSS at least hosted on GitHub and/or published on rubygems
+Confirm that the library is not used by other OSS at least hosted on GitHub and/or published on rubygems.
 
 ```plaintext
 https://github.com/#{your_name}/#{the_library}/network/dependents
@@ -74,25 +74,8 @@ Successfully deleted gem: the_retired_gem_name (0.0.3)
 
 ![All worldly things are transitory](https://user-images.githubusercontent.com/1180335/119101820-6174dd00-ba54-11eb-9b38-872c33f6f5ea.png)
 
-This is dangerous. Correctly works or not is not ensured the feature of `gem` command behavior changes.
-
-My environment when used this tool.
-
-```console
-$ ruby -v
-ruby 3.0.1p64 (2021-04-05 revision 0fb782ee38) [x86_64-darwin20]
-
-$ gem -v
-3.2.15
-
-$ bundle -v
-Bundler version 2.2.17
-
-$ rake --version
-rake, version 13.0.3
-```
-
-I don't recommend to use this way, for others.
+This is dangerous. Whether it works correctly or not is not guaranteed, the function of the `gem` command changes the behavior.
+I don't recommend using this way for others.
 
 ## Motivation
 
