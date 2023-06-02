@@ -58,7 +58,7 @@ https://rubygems.org/gems/#{the_library}/reverse_dependencies
 ```console
 $ git clone git@github.com:kachick/yank-all-versions-of-a-gem-to-release-the-valuable-namespace-for-others.git
 $ cd yank-all-versions-of-a-gem-to-release-the-valuable-namespace-for-others
-$ rake yank_all_i_swear_i_know_exactly_what_i_am_going_to_do[the_retired_gem_name,otp_code]
+$ rake 'yank_all_i_swear_i_know_exactly_what_i_am_going_to_do[the_retired_gem_name,otp_code]'
 gem yank the_retired_gem_name --version 0.0.1 --otp 123456
 Yanking gem from https://rubygems.org...
 Successfully deleted gem: the_retired_gem_name (0.0.1)
